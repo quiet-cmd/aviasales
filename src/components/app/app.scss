@@ -1,0 +1,21 @@
+@import '../var.scss';
+
+.content {
+  max-width: 502px;
+  margin: 0px auto;
+  padding: 0px 0px 20px 0px;
+}
+
+.aviasales-logo {
+  display: block;
+  margin: 0px auto;
+}
+
+.btn-more {
+  width: 100%;
+}
+
+.btn-active {
+  background-color: $activeColor;
+  color: $whiteColor;
+}

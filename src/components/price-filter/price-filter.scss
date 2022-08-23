@@ -1,0 +1,50 @@
+@import '../var.scss';
+
+.price-filter {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px 20px 0px;
+  .price-filter__filter {
+    margin-bottom: 5px;
+
+    .price-filter__input {
+      position: absolute;
+    }
+
+    .price-filter__input:checked + .price-filter__text {
+      background-color: $activeColor;
+      color: $whiteColor;
+    }
+
+    .price-filter__text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $whiteColor;
+      border: 1px solid $borderColor;
+      border-radius: 10px;
+      height: 50px;
+    }
+  }
+
+  @media (min-width: 425px) {
+    & {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid $borderColor;
+      border-radius: 10px;
+      background-color: $whiteColor;
+
+      .price-filter__filter {
+        flex-grow: 1;
+        margin: 0px;
+
+        .price-filter__text {
+          border: none;
+          border-radius: 0;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
