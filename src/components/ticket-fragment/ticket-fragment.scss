@@ -1,0 +1,10 @@
+@import '../var.scss';
+
+.ticket__info {
+  display: flex;
+  justify-content: space-between;
+
+  & > div {
+    white-space: nowrap;
+  }
+}

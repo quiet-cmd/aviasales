@@ -1,28 +1,20 @@
 import React from 'react';
 
+import TicketFragment from '../ticket-fragment';
+
 import './ticket.scss';
 
-const Ticket = () => {
+const Ticket = ({ price, carrier, segments }) => {
+  const fragment = segments.map(({ ...props }, index) => {
+    return <TicketFragment key={index} {...props} />;
+  });
   return (
     <div className="ticket">
       <header className="ticket__top">
-        <h2 className="ticket__price">13 400P</h2>
-        <img className="ticket__logo" src="//pics.avs.io/99/36/1.png" alt="avia-logo" />
+        <h2 className="ticket__price">{price}P</h2>
+        <img className="ticket__logo" src={`//pics.avs.io/99/36/${carrier}.png`} alt="avia-logo" />
       </header>
-      <div className="ticket__info">
-        <div className="ticket__route">
-          <h3>MOW – HKT</h3>
-          <p>10:45 – 08:00</p>
-        </div>
-        <div className="ticket__length">
-          <h3>В пути</h3>
-          <p>21ч – 15м</p>
-        </div>
-        <div className="ticket__stops">
-          <h3>2 пересадки</h3>
-          <p>HKG, JNB</p>
-        </div>
-      </div>
+      {fragment}
     </div>
   );
 };

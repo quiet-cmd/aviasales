@@ -4,35 +4,6 @@
   .filter-transfers__name {
     margin-left: 10px;
   }
-  .check {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-
-    width: 100%;
-    background-color: $whiteColor;
-    height: 50px;
-    border-radius: 10px;
-
-    .check__input {
-      display: inline-block;
-      appearance: none;
-    }
-    .check__box {
-      display: inline;
-      width: 20px;
-      height: 20px;
-      background: url('./checkbox-unactive.svg') no-repeat;
-      margin-right: 5px;
-    }
-    .check__input:checked + .check__box {
-      background: url('./checkbox-active.svg') no-repeat;
-    }
-  }
-
-  .check:hover {
-    background: $hoverColor;
-  }
 
   @media (min-width: 900px) {
     & {
@@ -45,13 +16,6 @@
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
       border-radius: 5px;
       width: 180px;
-
-      .check {
-        width: 100%;
-        background-color: none;
-        height: auto;
-        border-radius: 0px;
-      }
     }
   }
 }

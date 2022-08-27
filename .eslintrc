@@ -40,7 +40,11 @@
         "react/jsx-uses-vars": "error",
         "indent": [
         "error",
-        2
+        2,
+        {
+            "SwitchCase": 1,
+            "ignoredNodes": ["ConditionalExpression"],
+        }
       ],
       "prettier/prettier": "error",
       "linebreak-style": [
