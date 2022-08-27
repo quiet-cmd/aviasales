@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from 'date-fns';
 import './ticket-fragment.scss';
 
 const transferTitle = (value) => {
@@ -10,7 +11,7 @@ const transferTitle = (value) => {
 const DateFormat = (duration, date) => {
   const start = new Date(date);
   const stop = new Date(new Date(date).getTime() + new Date(duration * 60000).getTime());
-  return `${start.getHours()}:${start.getMinutes()} - ${stop.getHours()}:${stop.getMinutes()}`;
+  return `${format(start, 'HH:mm')} - ${format(stop, 'HH:mm')}`;
 };
 
 const TicketFragment = ({ origin, destination, stops, duration, date }) => {
