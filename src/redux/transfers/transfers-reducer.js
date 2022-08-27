@@ -14,7 +14,7 @@ const transfersReducer = (state = initState, action) => {
       if (sumTrue === 5) return { ...state, ...action.item, all: false };
       if (sumTrue + action.flag === 4) return initState;
       return { ...state, ...action.item };
-    case 'ALL-FALSE':
+    case 'ALL-FALSE-FILTER':
       return {
         all: false,
         without: false,
@@ -22,7 +22,7 @@ const transfersReducer = (state = initState, action) => {
         twice: false,
         thrice: false,
       };
-    case 'ALL-TRUE':
+    case 'ALL-TRUE-FILTER':
       return initState;
     default:
       return state;

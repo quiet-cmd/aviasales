@@ -16,15 +16,17 @@ const TicketsList = ({ tickets, start }) => {
     return <Ticket key={index} {...props} />;
   });
   return (
-    <div className="tickets-list" onClick={() => start()}>
+    <div className="tickets-list">
       {list}
+      {!list.length && 'Рейсов, подходящих под заданные фильтры, не найдено'}
     </div>
   );
 };
 
-const mapDispatchToProps = ({ transfersReducer, pricerReducer, ticketReducer }) => {
+const mapDispatchToProps = ({ transfersReducer, pricerReducer, ticketReducer, showMoreReducer }) => {
+  const filtredArr = PriceSorter(pricerReducer, TransferSorter(transfersReducer, ticketReducer));
   return {
-    tickets: TransferSorter(transfersReducer, PriceSorter(pricerReducer, ticketReducer)),
+    tickets: filtredArr.slice(0, showMoreReducer),
   };
 };
 export default connect(mapDispatchToProps, action)(TicketsList);
