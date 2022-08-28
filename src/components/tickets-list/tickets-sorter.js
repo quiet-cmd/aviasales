@@ -3,12 +3,13 @@ const transferCounter = (cntStop, arr) => {
 };
 
 export const PriceSorter = (price, arr) => {
-  if (price === 'CHEAP') return arr.sort((a, b) => a.price - b.price);
+  const tmp = arr.slice();
+  if (price === 'CHEAP') return tmp.sort((a, b) => a.price - b.price);
   if (price === 'FAST')
-    return arr.sort((a, b) =>
+    return tmp.sort((a, b) =>
       a.segments[0].duration + a.segments[1].duration > b.segments[0].duration + b.segments[1].duration ? 1 : -1
     );
-  if (price === 'OPTIMAL') return arr;
+  if (price === 'OPTIMAL') return tmp;
 };
 
 export const TransferSorter = (filters, arr) => {
