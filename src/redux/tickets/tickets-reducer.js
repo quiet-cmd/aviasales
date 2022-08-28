@@ -1,7 +1,14 @@
-const ticketReducer = (state = [], action) => {
+const initState = {
+  tickets: [],
+  loader: true,
+};
+
+const ticketReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'NEW':
-      return action.value;
+    case 'ADD-TICKETS':
+      return { ...state, tickets: [...state.tickets, ...action.value] };
+    case 'SET-LOADED':
+      return { ...state, loader: false };
     default:
       return state;
   }
