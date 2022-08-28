@@ -18,8 +18,8 @@ const TicketsList = ({ tickets, start, loader }) => {
   });
   return (
     <div className="tickets-list">
-      {list}
       {loader && <Loader />}
+      {list}
       {!loader && !list.length && 'Рейсов, подходящих под заданные фильтры, не найдено'}
     </div>
   );

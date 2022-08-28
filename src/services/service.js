@@ -15,16 +15,26 @@ class AviasaleServices {
     return result.searchId;
   }
 
-  async getTickets(searchId) {
+  async getOneTicketsPackage(searchId) {
+    const url = `https://front-test.dev.aviasales.ru/tickets?searchId=${searchId}`;
+    const res = await this.getResource(url);
+    return res.tickets;
+  }
+
+  async getAllTickets(searchId) {
     let stop = false;
+    let cnt = 0;
     const result = [];
     const url = `https://front-test.dev.aviasales.ru/tickets?searchId=${searchId}`;
-    while (!stop) {
+    while (!stop && cnt !== 10) {
       const res = await this.getResource(url);
-      if (res) {
-        stop = res.stop;
-        result.push(...res.tickets);
+      if (res === undefined) {
+        cnt++;
+        continue;
       }
+      stop = res.stop;
+      result.push(...res.tickets);
+      cnt = 0;
     }
     return result;
   }

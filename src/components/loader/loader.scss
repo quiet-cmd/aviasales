@@ -1,3 +1,5 @@
+@import '../var.scss';
+
 .loader {
   position: relative;
   display: flex;
@@ -13,13 +15,13 @@
   position: relative;
   margin: 0 5px;
   border-radius: 50%;
-  color: #a0b0b9;
+  color: $lightColor;
   background: currentColor;
   box-shadow: 50px 0, -50px 0;
   animation: left 1s infinite ease-in-out;
 }
 .loader:after {
-  color: #2196f3;
+  color: $activeColor;
   animation: right 1.1s infinite ease-in-out;
 }
 

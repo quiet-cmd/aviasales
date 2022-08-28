@@ -8,8 +8,10 @@ export const loaded = () => ({ type: 'SET-LOADED' });
 export function start() {
   return async (dispatch) => {
     const token = await services.createSearchId();
-    const res = await services.getTickets(token);
-    dispatch(saveTicket(res));
+    const someTicket = await services.getOneTicketsPackage(token);
+    dispatch(saveTicket(someTicket));
+    const allTickets = await services.getAllTickets(token);
+    dispatch(saveTicket(allTickets));
     dispatch(loaded());
   };
 }

@@ -16,7 +16,7 @@ const App = ({ addFive }) => {
       <PriceFilter />
       <FilterTransfers />
       <TicketsList />
-      <input type="button" className="btn-more" defaultValue="Показать еще 5 билетов!" onClick={() => addFive()} />
+      <input type="button" className="btn-more" defaultValue="Показать еще 5 билетов!" onClick={addFive} />
     </main>
   );
 };
