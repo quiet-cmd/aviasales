@@ -9,7 +9,7 @@ const FilterItem = ({ name, action, state, filter }) => {
   const flag = state[action];
   return (
     <label className="check">
-      <input onClick={() => filter(action, flag)} checked={flag} className="check__input" type="checkbox" />
+      <input onChange={() => filter(action, flag)} checked={flag} className="check__input" type="checkbox" />
       <span className="check__box"></span>
       {name}
     </label>

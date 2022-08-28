@@ -1,12 +1,12 @@
-const initState = {
-  all: true,
-  without: true,
-  once: true,
-  twice: true,
-  thrice: true,
-};
-
-const transfersReducer = (state = initState, action) => {
+const transfersReducer = (state, action) => {
+  const initState = {
+    all: true,
+    without: true,
+    once: true,
+    twice: true,
+    thrice: true,
+  };
+  if (state === undefined) state = initState;
   const sumTrue = Object.values(state || []).reduce((a, b) => a + b, 0);
 
   switch (action.type) {
