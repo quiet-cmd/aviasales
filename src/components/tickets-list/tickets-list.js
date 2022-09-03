@@ -14,10 +14,10 @@ const TicketsList = ({ tickets, start, loader, addFive }) => {
     start();
   }, []);
   const list = tickets.map(({ ...props }) => {
-    const { price, carrier, segments } = props;
-    const seg = isNaN(segments) ? price : segments[0].date();
-    const key = isNaN(carrier) ? -price : carrier;
-    return <Ticket key={`${key}:${seg}`} {...props} />;
+    const {
+      segments: [segment],
+    } = props;
+    return <Ticket key={segment.date + segment.stops} {...props} />;
   });
   const empty = list.length === 0;
   return (
