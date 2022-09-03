@@ -1,18 +1,19 @@
 import React from 'react';
+import { v5 as uuidv5 } from 'uuid';
 
 import TicketFragment from '../ticket-fragment';
 
-import './ticket.scss';
+import classes from './ticket.module.scss';
 
 const Ticket = ({ price, carrier, segments }) => {
-  const fragment = segments.map(({ ...props }, index) => {
-    return <TicketFragment key={index} {...props} />;
+  const fragment = segments.map(({ ...props }) => {
+    return <TicketFragment key={uuidv5(props.date + props.stops, uuidv5.URL)} {...props} />;
   });
   return (
-    <div className="ticket">
-      <header className="ticket__top">
-        <h2 className="ticket__price">{price}P</h2>
-        <img className="ticket__logo" src={`//pics.avs.io/99/36/${carrier}.png`} alt="avia-logo" />
+    <div className={classes.ticket}>
+      <header className={classes.top}>
+        <h2 className={classes.price}>{price}P</h2>
+        <img className={classes.logo} src={`//pics.avs.io/99/36/${carrier}.png`} alt="avia-logo" />
       </header>
       {fragment}
     </div>

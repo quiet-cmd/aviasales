@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 
 import * as action from '../../redux/transfers/transfers-actions';
 
-import './filter-item.scss';
+import classes from './filter-item.module.scss';
 
 const FilterItem = ({ name, action, state, filter }) => {
   const flag = state[action];
   return (
-    <label className="check">
-      <input onChange={() => filter(action, flag)} checked={flag} className="check__input" type="checkbox" />
-      <span className="check__box"></span>
+    <label className={classes.check}>
+      <input onChange={() => filter(action, flag)} checked={flag} className={classes.input} type="checkbox" />
+      <span className={classes.box}></span>
       {name}
     </label>
   );

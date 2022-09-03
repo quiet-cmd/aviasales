@@ -7,8 +7,7 @@ import Ticket from '../ticket';
 import Loader from '../loader/loader';
 
 import { PriceSorter, TransferSorter } from './tickets-sorter';
-
-import './tickets-list.scss';
+import classes from './tickets-list.module.scss';
 
 const TicketsList = ({ tickets, start, loader, addFive }) => {
   useEffect(() => {
@@ -20,12 +19,14 @@ const TicketsList = ({ tickets, start, loader, addFive }) => {
   const empty = list.length === 0;
   return (
     <>
-      <div className="tickets-list">
+      <div>
         {loader && <Loader />}
         {list}
         {!loader && empty && 'Рейсов, подходящих под заданные фильтры, не найдено'}
       </div>
-      {!empty && <input type="button" className="btn-more" defaultValue="Показать еще 5 билетов!" onClick={addFive} />}
+      {!empty && (
+        <input type="button" className={classes['btn-more']} defaultValue="Показать еще 5 билетов!" onClick={addFive} />
+      )}
     </>
   );
 };

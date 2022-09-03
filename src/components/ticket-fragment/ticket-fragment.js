@@ -1,6 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
-import './ticket-fragment.scss';
+
+import classes from './ticket-fragment.module.scss';
 
 const transferTitle = (value) => {
   if (value === 1) return '1 пересадка';
@@ -16,20 +17,20 @@ const DateFormat = (duration, date) => {
 
 const TicketFragment = ({ origin, destination, stops, duration, date }) => {
   return (
-    <div className="ticket__info">
-      <div className="ticket__route">
+    <div className={classes.ticket}>
+      <div className={classes.route}>
         <h3>
           {origin} – {destination}
         </h3>
         <p>{DateFormat(duration, date)}</p>
       </div>
-      <div className="ticket__length">
+      <div className={classes.length}>
         <h3>В пути</h3>
         <p>
           {Math.trunc(duration / 60)}ч – {duration % 60}м
         </p>
       </div>
-      <div className="ticket__stops">
+      <div className={classes.stops}>
         <h3>{transferTitle(stops.length)}</h3>
         <p>{stops.join(' ')}</p>
       </div>

@@ -1,22 +1,27 @@
 @import '../var.scss';
 
-.price-filter {
+.wrapper {
   display: flex;
   flex-direction: column;
   margin: 20px 0px 20px 0px;
-  .price-filter__filter {
+  .filter {
     margin-bottom: 5px;
 
-    .price-filter__input {
+    .input {
       position: absolute;
     }
 
-    .price-filter__input:checked + .price-filter__text {
+    .input:checked + .text {
       background-color: $activeColor;
       color: $whiteColor;
     }
 
-    .price-filter__text {
+    .input:focus-visible + .text {
+      transition: transform 0.1 linear;
+      transform: scale(1.2);
+    }
+
+    .text {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -35,11 +40,11 @@
       border-radius: 10px;
       background-color: $whiteColor;
 
-      .price-filter__filter {
+      .filter {
         flex-grow: 1;
         margin: 0px;
 
-        .price-filter__text {
+        .text {
           border: none;
           border-radius: 0;
           background-color: transparent;

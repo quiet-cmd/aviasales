@@ -1,8 +1,9 @@
 import React from 'react';
+import { v5 as uuidv5 } from 'uuid';
 
 import FilterItem from '../filter-item/filter-item';
 
-import './filter-transfers.scss';
+import classes from './filter-transfers.module.scss';
 
 const FilterTransfers = () => {
   const filters = [
@@ -13,10 +14,10 @@ const FilterTransfers = () => {
     { name: '3 пересадки', action: 'thrice' },
   ];
 
-  const filtersItemList = filters.map(({ ...props }, i) => <FilterItem key={i} {...props} />);
+  const filtersItemList = filters.map(({ ...props }) => <FilterItem key={uuidv5(props.name, uuidv5.URL)} {...props} />);
   return (
-    <aside className="filter-transfers">
-      <p className="filter-transfers__name">Количество пересадок</p>
+    <aside className={classes.filters}>
+      <p className={classes.name}>Количество пересадок</p>
       {filtersItemList}
     </aside>
   );

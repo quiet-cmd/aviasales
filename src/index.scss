@@ -34,7 +34,6 @@ p {
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
-
   color: $normalColor;
 }
 
@@ -43,6 +42,11 @@ p {
   max-width: 960px;
   min-height: 100vh;
   background-color: $backgroundColor;
+}
+
+input:focus-visible {
+	transition: transform 0.1 linear;
+	transform: scale(1.2);
 }
 
 input[type='button'] {
