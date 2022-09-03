@@ -13,8 +13,11 @@ const TicketsList = ({ tickets, start, loader, addFive }) => {
   useEffect(() => {
     start();
   }, []);
-  const list = tickets.map(({ ...props }, index) => {
-    return <Ticket key={index} {...props} />;
+  const list = tickets.map(({ ...props }) => {
+    const { price, carrier, segments } = props;
+    const seg = isNaN(segments) ? price : segments[0].date();
+    const key = isNaN(carrier) ? -price : carrier;
+    return <Ticket key={`${key}:${seg}`} {...props} />;
   });
   const empty = list.length === 0;
   return (
